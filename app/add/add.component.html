@@ -1,0 +1,11 @@
+
+<a [routerLink]="['/dashboard']">Home</a>
+
+<form (submit)="onSubmit()">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p> {{ author | json }} </p>
+    <input type="text" name="author.name" [(ngModel)]="author.name" />
+    <p *ngIf="errorsPresent">{{ errorMessage }}</p>
+    <input type="submit" value="Add Author" />
+</form>
+

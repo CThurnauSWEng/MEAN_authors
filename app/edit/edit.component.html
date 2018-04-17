@@ -1,0 +1,14 @@
+<a [routerLink]="['/dashboard']">Home</a>
+
+<div *ngIf="authorDataAvailable" id="{{author['data'][0]['_id']}}">
+    <form  (submit)="onSubmit($event)">
+        <!-- use the json pipe to see how newTask changes in real time -->
+       f <p> {{ author | json }} </p>
+        <input type="text" name="author['data'][0]['name']" [(ngModel)]="author['data'][0]['name']" />
+        <p *ngIf="errorsPresent">{{ errorMessage }} </p>
+        <button [routerLink]="['/dashboard']">Cancel</button>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+
